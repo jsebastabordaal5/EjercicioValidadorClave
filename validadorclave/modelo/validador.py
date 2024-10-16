@@ -5,14 +5,8 @@ class ReglaValidacion(ABC):
     def __init__(self, _longitud_esperada: int):
         self._longitud_esperada: int = _longitud_esperada
 
-
-    @abstractmethod
-    def es_valida(self, clave: str) -> bool:
-        pass
-
     def _validar_longitud(self, clave: str) -> bool:
         return len(clave) > self._longitud_esperada
-
 
     def _contiene_mayuscula(self, clave: str) -> bool:
         return any(caracter.isupper() for caracter in clave)
@@ -23,12 +17,16 @@ class ReglaValidacion(ABC):
     def _contiene_numero(self, clave: str) -> bool:
         return any(caracter.isdigit() for caracter in clave)
 
+    @abstractmethod
+    def es_valida(self, clave: str) -> bool:
+        pass
 
 
 class ReglaValidacionGanimedes:
 
-    def contiene_caracter_especial(self):
-        pass
+    def contiene_caracter_especial(self, clave: str) -> bool:
+        caracteres_especiales = "@_#$%"
+        return any(caracter in caracteres_especiales for caracter in clave)
 
     def es_valida(self):
         pass
