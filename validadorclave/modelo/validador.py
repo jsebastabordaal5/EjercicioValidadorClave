@@ -11,30 +11,18 @@ class ReglaValidacion(ABC):
         pass
 
     def _validar_longitud(self, clave: str) -> bool:
-        if len(clave) > self._longitud_esperada:
-            return True
-        else:
-            return False
+        return len(clave) > self._longitud_esperada
 
 
     def _contiene_mayuscula(self, clave: str) -> bool:
-        if any(caracter.isupper() for caracter in clave):
-            return True
-        else:
-            return False
-
+        return any(caracter.isupper() for caracter in clave):
 
     def _contiene_minuscula(self, clave: str) -> bool:
-        if any(caracter.islower() for caracter in clave):
-            return True
-        else:
-            return False
+        return any(caracter.islower() for caracter in clave):
 
     def _contiene_numero(self, clave: str) -> bool:
-        if any(caracter.isdigit() for caracter in clave):
-            return True
-        else:
-            return False
+        return any(caracter.isdigit() for caracter in clave):
+
 
 
 class ReglaValidacionGanimedes:
@@ -56,3 +44,4 @@ class ReglaValidacionCalisto:
 
 class Validador:
      def es_valida(self):
+         pass
