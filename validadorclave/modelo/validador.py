@@ -17,13 +17,20 @@ class ReglaValidacion(ABC):
             return False
 
 
-    def _contiene_mayuscula(self):
-        pass
+    def _contiene_mayuscula(self, clave: str) -> bool:
+        if any(caracter.isupper() for caracter in clave):
+            return True
+        else:
+            return False
 
-    def _contiene_minuscula(self):
-        pass
 
-    def _contiene_numero(self):
+    def _contiene_minuscula(self, clave: str) -> bool:
+        if any(caracter.islower() for caracter in clave):
+            return True
+        else:
+            return False
+
+    def _contiene_numero(self, clave: str) -> bool:
         pass
 
 
