@@ -5,7 +5,9 @@ class ReglaValidacion(ABC):
     def __init__(self, _longitud_esperada: int):
         self._longitud_esperada: int = _longitud_esperada
 
-    def es_valida(self):
+
+    @abstractmethod
+    def es_valida(self, clave: str) -> bool:
         pass
 
     def _validar_longitud(self):
