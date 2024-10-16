@@ -15,13 +15,13 @@ class ReglaValidacion(ABC):
 
 
     def _contiene_mayuscula(self, clave: str) -> bool:
-        return any(caracter.isupper() for caracter in clave):
+        return any(caracter.isupper() for caracter in clave)
 
     def _contiene_minuscula(self, clave: str) -> bool:
-        return any(caracter.islower() for caracter in clave):
+        return any(caracter.islower() for caracter in clave)
 
     def _contiene_numero(self, clave: str) -> bool:
-        return any(caracter.isdigit() for caracter in clave):
+        return any(caracter.isdigit() for caracter in clave)
 
 
 
