@@ -22,17 +22,23 @@ class ReglaValidacion(ABC):
         pass
 
 
-class ReglaValidacionGanimedes:
+class ReglaValidacionGanimedes(ReglaValidacion):
 
     def contiene_caracter_especial(self, clave: str) -> bool:
         caracteres_especiales = "@_#$%"
         return any(caracter in caracteres_especiales for caracter in clave)
 
-    def es_valida(self):
-        pass
+    def es_valida(self, clave: str) -> bool:
+        if (self._validar_longitud(clave) and
+            self._contiene_mayuscula(clave) and
+            self._contiene_minuscula(clave) and
+            self._contiene_numero(clave) and
+            self.contiene_caracter_especial(clave)):
+            return True
+        return False
 
 
-class ReglaValidacionCalisto:
+class ReglaValidacionCalisto(ReglaValidacion):
 
     def contiene_calisto(self):
         pass
