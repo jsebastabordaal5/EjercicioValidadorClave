@@ -32,3 +32,6 @@ class ReglaValidacionCalisto:
 
     def es_valida(self):
         pass
+
+class Validador:
+     def es_valida(self):
