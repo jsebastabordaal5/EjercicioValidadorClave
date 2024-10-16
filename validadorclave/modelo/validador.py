@@ -31,7 +31,10 @@ class ReglaValidacion(ABC):
             return False
 
     def _contiene_numero(self, clave: str) -> bool:
-        pass
+        if any(caracter.isdigit() for caracter in clave):
+            return True
+        else:
+            return False
 
 
 class ReglaValidacionGanimedes:
