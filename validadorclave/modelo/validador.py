@@ -9,7 +9,13 @@ class ReglaValidacion(ABC):
         return len(clave) > self._longitud_esperada
 
     def _contiene_mayuscula(self, clave: str) -> bool:
-        return any(caracter.isupper() for caracter in clave)
+       for c in clave:
+            if c.isupper():
+                return True
+            else:
+                return False
+
+
 
     def _contiene_minuscula(self, clave: str) -> bool:
         return any(caracter.islower() for caracter in clave)
@@ -43,7 +49,7 @@ class ReglaValidacionCalisto(ReglaValidacion):
     def contiene_calisto(self):
         pass
 
-    def es_valida(self):
+    def es_valida(self, clave: str) -> bool:
         pass
 
 class Validador:
