@@ -39,7 +39,12 @@ class ReglaValidacionGanimedes(ReglaValidacion):
 
     def contiene_caracter_especial(self, clave: str) -> bool:
         caracteres_especiales = "@_#$%"
-        return any(caracter in caracteres_especiales for caracter in clave)
+        for c in clave:
+            if c in caracteres_especiales:
+                return True
+            else:
+                return False
+
 
     def es_valida(self, clave: str) -> bool:
         if (self._validar_longitud(clave) and
