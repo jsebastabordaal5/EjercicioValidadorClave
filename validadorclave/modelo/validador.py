@@ -16,9 +16,12 @@ class ReglaValidacion(ABC):
                 return False
 
 
-
     def _contiene_minuscula(self, clave: str) -> bool:
-        return any(caracter.islower() for caracter in clave)
+        for c in clave:
+            if c.islower():
+                return True
+            else:
+                return False
 
     def _contiene_numero(self, clave: str) -> bool:
         return any(caracter.isdigit() for caracter in clave)
