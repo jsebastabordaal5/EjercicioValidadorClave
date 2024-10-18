@@ -24,7 +24,11 @@ class ReglaValidacion(ABC):
                 return False
 
     def _contiene_numero(self, clave: str) -> bool:
-        return any(caracter.isdigit() for caracter in clave)
+        for c in clave:
+            if c.isdigit():
+                return True
+            else:
+                return False
 
     @abstractmethod
     def es_valida(self, clave: str) -> bool:
